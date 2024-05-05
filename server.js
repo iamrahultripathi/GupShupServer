@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const socketIo = require('socket.io');
 const cors = require('cors');
-const roomRoute = require('./roomRoutes');
+
 const morgan = require('morgan');
 dotenv.config({
   path: './config.env',
@@ -26,6 +26,7 @@ mongoose
   });
 const app = express();
 app.use(cors());
+const roomRoute = require('./roomRoutes');
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
